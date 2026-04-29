@@ -38,6 +38,6 @@ This project was developed for the **Linux Foundation Mentorship (LFX) Coding Ch
 
 ### **1. Installation**
 ```bash
-git clone <your-repository-url>
+git clone <[your-repository-url](https://github.com/Nosheen-Akhtar16/RISC-V-Instruction-Set-Explorer/tree/main)>
 cd riscv-instruction-explorer
 npm install
