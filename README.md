@@ -101,15 +101,21 @@ This project was developed for the **Linux Foundation Mentorship (LFX) Coding Ch
 ```bash
 git clone <your-repository-url>
 cd riscv-instruction-explorer
-2. Install Dependencies
-Bash
-npm install
-3. Run the Full Analysis Pipeline
+```
+## **2. Install Dependencies**
+### **1. Clone the Repository**
+```bash
+git clone <your-repository-url>
+cd riscv-instruction-explorer
+```Bash
+npm install ```
+## **3. Run the Full Analysis Pipeline**
 To execute all Tiers (1, 2, and Bonus) and generate reports:
 
-Bash
-node main.js
-4. Viewing the Outputs
+```Bash
+node main.js ```
+
+## **4. Viewing the Outputs**
 CLI Report: View the summary table and cross-reference statistics in your terminal.
 
 graph.html: Open in a browser to see the instruction distribution chart.
