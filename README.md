@@ -61,6 +61,9 @@ TIER 2: 42 matched, 3 in JSON only, 5 in manual only
 ✅ Visual graph saved as "map.html"
 👩‍💻 About the Author
 Nosheen Akhtar
+
 2nd Year B.Tech CSE Student at IGDTUW.
+
 Open Source Contributor (GSSoC '25) with experience in MERN stack, C++, and IoT.
+
 Passionate about low-level systems and high-precision architecture.
