@@ -36,11 +36,7 @@ This project was developed for the **Linux Foundation Mentorship (LFX) Coding Ch
 
 ---
 
-# 🚀 RISC-V Instruction Set Explorer
 
-An automated tool for **Instruction Set Analysis, Cross-Referencing, and Visual Relationship Mapping**.
-
----
 
 ## 📦 Installation & Execution Guide
 
