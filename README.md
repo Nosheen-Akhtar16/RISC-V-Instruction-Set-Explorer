@@ -36,39 +36,87 @@ This project was developed for the **Linux Foundation Mentorship (LFX) Coding Ch
 
 ---
 
-## 🚀 Installation & Execution Guide
+# 🚀 RISC-V Instruction Set Explorer
 
-### **1. Clone the Repository**
+An automated tool for **Instruction Set Analysis, Cross-Referencing, and Visual Relationship Mapping**.
+
+---
+
+## 📦 Installation & Execution Guide
+
+### 1. Clone the Repository
+
 ```bash
-git clone [https://github.com/Nosheen-Akhtar16/RISC-V-Instruction-Set-Explorer.git](https://github.com/Nosheen-Akhtar16/RISC-V-Instruction-Set-Explorer.git)
+git clone https://github.com/Nosheen-Akhtar16/RISC-V-Instruction-Set-Explorer.git
 cd RISC-V-Instruction-Set-Explorer
-2. Install Dependencies
-Bash
+```
+
+### 2. Install Dependencies
+
+```bash
 npm install
-3. Run the Analysis Pipeline
-To execute all Tiers (1, 2, and Bonus) and generate reports:
+```
 
-Bash
+### 3. Run the Analysis Pipeline
+
+Execute all tiers (Tier 1, Tier 2, Bonus):
+
+```bash
 node main.js
-4. Viewing the Outputs
-CLI Report: View the summary table and cross-reference statistics in your terminal.
+```
 
-graph.html: Open in a browser to see the instruction distribution chart.
+---
 
-map.html: Open in a browser to explore the extension relationship graph.
+## 📊 Outputs
 
-🛠️ Engineering Design Decisions
-Normalization Philosophy: Implemented a regex-based normalizer to strip architectural bit-widths (rv32/rv64) and standardize prefixes, ensuring rv_zba and Zba are correctly matched.
+* **CLI Report**
+  Displays extension summary and cross-reference results in terminal.
 
-Performance Optimization: The script uses a recursive walker to scan the manual's source, specifically targeting .adoc files in the src/ directory to ensure high accuracy with minimal overhead.
+* **graph.html**
+  Open in browser → shows instruction distribution (Donut Chart).
 
-Graph Logic: The relationship graph revealed modular dependencies by drawing logical "edges" between extensions that share identical instruction mnemonics.
+* **map.html**
+  Open in browser → interactive graph of extension relationships.
 
-👩‍💻 About the Author
-Nosheen Akhtar
+---
 
-Education: 2nd Year B.Tech CSE Student at IGDTUW (2028).
+## ⚙️ Engineering Design Decisions
 
-Experience: Open Source Contributor (GSSoC '25) with a focus on Full-Stack (MERN) and IoT integration.
+* **Normalization Strategy**
+  Regex-based normalization to remove prefixes like `rv32_`, `rv64_` and standardize extensions.
 
-Philosophy: Applying the discipline of Taekwondo to write clean, resilient, and optimized code.
+* **Performance Optimization**
+  Recursive directory scanning for ISA manual parsing.
+
+* **Graph Logic**
+  Extensions are connected if they share at least one instruction.
+
+---
+
+## 🧪 Bonus Features
+
+* ✅ Cross-referencing with official RISC-V ISA manual
+* ✅ Multi-extension detection
+* ✅ Unit tests for validation
+* ✅ Interactive graph visualization
+
+---
+
+## 📌 Tech Stack
+
+* Node.js
+* JavaScript (ES6)
+* Chart.js
+* Viz.js (Graph Visualization)
+
+---
+
+## 👩‍💻 Author
+
+**Nosheen Akhtar**
+
+---
+
+## 📄 License
+
+MIT License
