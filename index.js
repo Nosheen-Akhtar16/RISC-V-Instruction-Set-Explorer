@@ -1,12 +1,15 @@
 const fs = require("fs");
 //JSON read
+if (!fs.existsSync("instr_dict.json")) {
+    console.log("oops, no file");
+    process.exit(1);
+}
 const data = JSON.parse(fs.readFileSync("instr_dict.json", "utf-8"));
 
 //extension map and  multi-ext
 const extMap = {};
 const multiExt = [];
 
-// Step 3: single loop
 for (const instruction in data) {
     const details = data[instruction];
 
@@ -16,7 +19,7 @@ for (const instruction in data) {
 
     if (!Array.isArray(extensions) || extensions.length === 0) continue;
 
-    // multi-extension check
+    // do multi extension check 
     if (extensions.length > 1) {
         multiExt.push({ instruction, extensions });
     }
@@ -30,7 +33,7 @@ for (const instruction in data) {
     });
 }
 
-// Step 4: sort (count DESC + name ASC)
+// Sort
 const sorted = Object.entries(extMap).sort((a, b) => {
     if (b[1].size !== a[1].size) {
         return b[1].size - a[1].size;
@@ -38,7 +41,7 @@ const sorted = Object.entries(extMap).sort((a, b) => {
     return a[0].localeCompare(b[0]);
 });
 
-// Step 5: print summary
+// print summary
 console.log("\n=== Extension Summary ===\n");
 
 sorted.forEach(([ext, instrSet]) => {
@@ -65,7 +68,7 @@ console.log("Total Unique Instructions:", totalUniqueInstructions);
 // multi-extension output
 console.log("\n=== Instructions with Multiple Extensions ===\n");
 
-multiExt.slice(0, 15).forEach(item => {
+multiExt.slice(0, 5).forEach(item => {
     console.log(`${item.instruction} → ${item.extensions.join(", ")}`);
 });
 
@@ -112,15 +115,15 @@ const html = `
         datasets: [{
           data: counts,
           backgroundColor: [
-            '#4CAF50',
-            '#2196F3',
-            '#FFC107'
+            '#73a774',
+            '#2195f3de',
+            '#dfab12'
           ]
         }]
       },
       options: {
         responsive: true,
-        cutout: '60%', // 👈 donut hole size
+        cutout: '35%',
         plugins: {
           legend: {
             position: 'bottom'

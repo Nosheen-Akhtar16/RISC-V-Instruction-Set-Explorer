@@ -7,9 +7,7 @@ const { promisify } = require('util');
 const execPromise = promisify(exec);
 const fsSync = require('fs'); // for sync write of HTML
 
-// --------------------------------------------------------------
-// 1. Normalize extension names
-// --------------------------------------------------------------
+//Normalize extension names
 function normalizeExtension(name) {
     let n = name.toLowerCase();
     n = n.replace(/^rv(32|64)?_/, '');
@@ -28,7 +26,7 @@ function normalizeExtension(name) {
     return n.toUpperCase();
 }
 
-// 2. Load JSON and extract normalized extensions (no printing)
+//Load JSON and extract normalized extensions (no printing)
 async function loadExtensions() {
     const url = 'https://raw.githubusercontent.com/rpsene/riscv-extensions-landscape/main/src/instr_dict.json';
     const res = await fetch(url);
@@ -44,7 +42,7 @@ async function loadExtensions() {
     return { extSet, instrDict };
 }
 
-// 3. Clone / update ISA manual
+//update ISA manual
 async function getManual() {
     const dir = 'riscv-isa-manual';
     try {
@@ -58,7 +56,7 @@ async function getManual() {
     return dir;
 }
 
-// 4. Scan manual for extension names (improved filtering)
+//Scan manual for extension names (improved filtering)
 async function scanManual(manualDir) {
     const found = new Set();
     const skip = new Set(['The','This','Section','Figure','Table','Chapter','Appendix','Example','Note','Zero','Zeros']);
@@ -96,7 +94,7 @@ async function scanManual(manualDir) {
     return found;
 }
 
-// 5. Compare and print Tier 2 results
+//Compare and print Tier 2 results
 function compareAndPrint(jsonExts, manualExts) {
     const jsonSet = new Set(jsonExts);
     const manualSet = new Set(manualExts);
@@ -117,7 +115,7 @@ function compareAndPrint(jsonExts, manualExts) {
     }
 }
 
-// 6. Bonus: Unit tests
+//Unit tests
 function runTests() {
     console.log('\n' + '='.repeat(60));
     console.log('Bonus – Unit Tests');
@@ -153,7 +151,7 @@ function runTests() {
     console.log(`\nTests: ${pass} passed, ${fail} failed`);
 }
 
-// 7. Bonus: Build graph edges and create HTML file
+//Build graph edges and create HTML file
 function buildGraphEdges(instrDict) {
     const extToInstr = new Map();
     for (const [mnemonic, details] of Object.entries(instrDict)) {
@@ -229,10 +227,7 @@ function createGraphHtml(edges) {
 </html>`;
     return html;
 }
-
-// --------------------------------------------------------------
 // MAIN
-// --------------------------------------------------------------
 async function main() {
     try {
         console.log('Loading instruction dictionary...');
